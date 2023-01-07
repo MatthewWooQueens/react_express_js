@@ -1,7 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import React ,{useEffect,useState} from "react";
 
 function App() {
+  const[apiResponse, setApiResponse] = useState(true);
+
+  useEffect(()=>{
+    fetch("http://localhost:9000/testapi").
+    then(res=>res.text()).
+    then(res=>setApiResponse(res));
+  });
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +27,7 @@ function App() {
           Learn React
         </a>
       </header>
+        <p>{apiResponse}</p>
     </div>
   );
 }
