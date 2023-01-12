@@ -6,7 +6,7 @@ function App() {
   const[apiResponse, setApiResponse] = useState(true);
 
   useEffect(()=>{
-    fetch("http://localhost:9000/testapi").
+    fetch("http://localhost:9000").
     then(res=>res.text()).
     then(res=>setApiResponse(res));
   });
